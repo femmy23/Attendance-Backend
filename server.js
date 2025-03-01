@@ -42,7 +42,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "https://my153.i.ng",
+    origin: "https://attendance-frontend-two-red.vercel.app",
     methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
     allowedHeaders: [
       "content-Type",
