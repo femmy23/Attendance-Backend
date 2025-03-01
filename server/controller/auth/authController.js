@@ -66,7 +66,7 @@ const signupUser = async (req, res) => {
 //
 
 const sendVerificationEmail = ({ _id, email }, res) => {
-  const currentUrl = "http://localhost:3000/";
+  const currentUrl = "/";
 
   const uniqueString = uuidv4() + _id;
 

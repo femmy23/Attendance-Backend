@@ -42,7 +42,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://my153.i.ng",
     methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
     allowedHeaders: [
       "content-Type",
