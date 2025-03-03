@@ -40,20 +40,42 @@ mongoose
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const cors = require("cors");
+
+const allowedOrigins = [
+  "https://attendance-frontend-two-red.vercel.app",
+  "https://my153.i.ng",
+];
+
 app.use(
   cors({
-    origin: "https://attendance-frontend-two-red.vercel.app",
-    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
-    allowedHeaders: [
-      "content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
-    credentials: true,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+
+    methods: "GET,POST,PUT,DELETE,OPTIONS",
+    allowedHeaders: "Content-Type,Authorization",
   })
 );
+
+// app.use(
+//   cors({
+//     origin: "https://attendance-frontend-two-red.vercel.app",
+//     methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
+//     allowedHeaders: [
+//       "content-Type",
+//       "Authorization",
+//       "Cache-Control",
+//       "Expires",
+//       "Pragma",
+//     ],
+//     credentials: true,
+//   })
+// );
 app.use(bodyParser.json());
 
 app.use(cookieParser());
