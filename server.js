@@ -47,6 +47,7 @@ const allowedOrigins = [
   "https://my153.i.ng",
 ];
 
+//MOdified
 app.use(
   cors({
     origin: function (origin, callback) {
